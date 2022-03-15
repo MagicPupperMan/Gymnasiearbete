@@ -36,11 +36,15 @@ app = Flask('sprout')
 @app.route('/')
 def home():
     # Number of readings to calculate mean value
-    n = 40
+    n = 50
     
-    # Calculate mean values of temp and tds for n readings (account for spikes or noise in voltage)
-    temp = round(sum([voltageToTemp(tempSensor.voltage) for x in range(n)])/n, 1)
-    tds = round(sum([voltageToTDS(tdsSensor.voltage) for x in range(n)])/n, 1)
+    # Calculate median values of temp and tds for n readings (account for spikes or noise in voltage)
+    tempList = [voltageToTemp(tempSensor.voltage) for x in range(n)]
+    tdsList = [voltageToTDS(tdsSensor.voltage) for x in range(n)]
+    tempList.sort()
+    tdsList.sort()
+    temp = tempList[n//2]
+    tds = tdsList[n//2]
     return render_template('index.html', temp = temp, tds = tds)
 
 # Run the app
