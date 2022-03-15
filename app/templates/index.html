@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Sprout</title>
+    <link rel = "stylesheet" type = "text/css" href = "{{ url_for('static', filename='styles/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <style>
+      h2 {
+        text-align: center;
+        font-family: 'Fredoka';
+        font-stretch: 100%;
+        font-weight: 400;
+        font-size: 2em;
+        letter-spacing: 0.2ch;
+      }
+
+      
+      h3 {
+          text-align: center;
+          font-family: 'Fredoka';
+          font-stretch: 100%;
+          font-weight: 300;
+          font-size: 1.2em;
+          letter-spacing: 0.2ch;
+        }
+        
+        @media (max-width: 800px)
+        {
+            h2 {
+                font-size: 1em;
+            }
+            h3 {
+                font-size: 0.6em;
+            }
+        }
+
+      figure {
+        border: 2px solid black;
+        height: 15vmax; 
+        width: 15vmax; 
+        border-radius: 50%;
+      }
+
+      footer p {
+          text-align: center;
+          font-family: 'Fredoka';
+          font-size: 14px;
+          font-weight: 200;
+          color:white;
+      }
+    </style>
+  </head>
+  <body class="flex-container column" style="justify-content: flex-start;">
+    <header class="flex-container center" style="height: 15%; background-color: black; gap: 1%">
+        <img src="{{ url_for('static', filename='img/sprout.svg') }}" style="height: 60%;" alt="Logo">
+        <h1 style="text-align: center; font-family: 'Fredoka'; letter-spacing: 0.5ch; color: white">sprout</h1>
+    </header>
+    <main class="flex-container center" style="height: 75%; justify-content: space-evenly;">
+      <figure class="flex-container column center">
+        <h2>{{temp}} &deg;C</h2><br>
+        <h3 style="text-align: center">Temperature</h3>
+      </figure>
+      <figure class="flex-container column center">
+        <h2>{{tds}} ppm</h2><br>
+        <h3 style="text-align: center">TDS</h3>
+      </figure>
+    </main>
+    <footer class="flex-container column center" style="height: 10%; background-color: black;">
+      <p>GYMNASIERBETE</p>
+      <p>Pixi Johansson</p>
+      <p>Claudiu Luca</p>
+      <p>Johan Åhrling</p>
+    </footer>
+  </body>
+</html>
